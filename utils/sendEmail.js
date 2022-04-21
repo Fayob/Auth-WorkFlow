@@ -2,8 +2,8 @@ const nodemailer = require("nodemailer");
 const Mailgun = require("mailgun.js");
 const formData = require("form-data");
 
-const API_KEY = "056dce4ed786644d0da165d71f0cff5b-38029a9d-fc459c3c";
-const DOMAIN = "sandbox2671e686a5a7473da65e0ddd9a62f0e0.mailgun.org";
+const API_KEY = process.env.MAILGUN_API_KEY;
+const DOMAIN = process.env.MAILGUN_DOMAIN;
 
 const sendEmail = async ({ to, subject, html }) => {
   const mailgun = new Mailgun(formData);
