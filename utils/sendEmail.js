@@ -16,7 +16,7 @@ const sendEmail = async ({ to, subject, html }) => {
     html,
   };
   try {
-    client.messages.create(DOMAIN, messageData);
+    await client.messages.create(DOMAIN, messageData);
   } catch (error) {
     console.log(error);
   }
