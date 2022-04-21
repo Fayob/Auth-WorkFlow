@@ -83,7 +83,11 @@ const updateUserPassword = async (req, res) => {
   res.status(StatusCodes.OK).json({ msg: "Success, password updated" });
 };
 const deleteUser = async (req, res) => {
-  res.send("delete user");
+  const userId = req.user.userId;
+
+  const user = await User.findByIdAndDelete({ _id: userId });
+
+  res.status(StatusCodes.OK).json({ msg: "User Deleted" });
 };
 
 module.exports = {

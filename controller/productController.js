@@ -43,7 +43,7 @@ const deleteProduct = async (req, res) => {
   const product = await Product.findOne({ _id: productId });
 
   if (!product) {
-    throw new CustomError.NotFoundError(`Not Product with id: ${productId}`);
+    throw new CustomError.NotFoundError(`No Product with id: ${productId}`);
   }
 
   await product.remove();
